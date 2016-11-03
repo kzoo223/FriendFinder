@@ -15,14 +15,43 @@ module.exports = function(app){
       console.log(answers);
       friends.push(answers);
       
-      for(var i = 0; i < friends.length; i++){
-        res.json(friends.score);
-    }
-})
+      //variable for submitted score
+      var submitScore = answers.score
+      var totalSubmitScore = 0
+      
+      for (var i = 0; i< submitScore.length; i++){
+        totalSubmitScore += parseInt(submitScore[i]) 
+      }
+
+      //compare difference between submit & matches
+      var lowestMatchScore = 50;
+      var matchName
+
+      for (var i = 0; i<friends.length-1; i++){
+
+        var matchScoreArray = friends[i].score
+        var matchScore = 0
+
+        for (var k = 0; k<matchScoreArray.length; k++){
+          matchScore += parseInt(friends[i].score[k])
+
+        }
+        var matchDiff = parseInt(totalSubmitScore - matchScore);
+        matchDiff = Math.abs(matchDiff)
+
+        if(matchDiff < lowestMatchScore){
+          lowestMatchScore = matchDiff
+          matchName = friends[i].name
+        }
+      }
+      console.log("Your Match is: "+ matchName)
+      res.send("Your Match is: "+ matchName)
+    })
+
 
 
 app.get("/api/friends", function(req, res){
   res.json(friends)
 });
 
-};
+}
