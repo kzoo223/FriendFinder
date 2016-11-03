@@ -164,7 +164,7 @@
           </div>
           <div class="modal-body">
             <h2 id="matchName"></h2>
-            <img id="matchImg">
+            <img id="matchImg" src="" alt="No Image">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -173,8 +173,10 @@
 
       </div>
     </div>
-
+</div>
+</div>
 <script type="text/javascript">
+$(document).ready(function(){
     $("#submitSurvey").on("click", function(){
         var personInfo = {
             name: $("#userName").val().trim(),
@@ -197,8 +199,12 @@
 
     return false;
 
-    })
-
+    
+    });
+})
 </script>
+
+
+</body>
 
 </html>
