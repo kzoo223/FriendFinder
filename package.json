@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/kzoo223/FriendFinder/issues"
   },
-  "homepage": "https://github.com/kzoo223/FriendFinder#readme"
+  "homepage": "https://github.com/kzoo223/FriendFinder#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "path": "^0.12.7"
+  }
 }
